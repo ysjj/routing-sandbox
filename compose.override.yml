@@ -1,0 +1,12 @@
+services:
+  ext-host:
+    image: localhost/routing-sandbox/external-nginx-whois-gateway
+    build:
+      args:
+        EXTRA_PACKAGES: nginx libnginx-mod-stream
+    command: nginx -g "daemon off;"
+  int-host:
+    image: localhost/routing-sandbox/internal-nginx-whois-gateway
+    build:
+      args:
+        EXTRA_PACKAGES: whois
