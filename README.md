@@ -46,6 +46,16 @@ healthy で開始するまで `podman compose up -d --force-recreate` を繰り�
 
 原因不明だが、対処療法として healthcheck を組み込んで発症を unhealthy として検出している。
 
+### gw-host が Error で開始しない
+
+Windows において `git config core.autocrlf` が `true` の状態で git clone した場合、
+改行コードが変換されて開始地点(/root/entry-point.sh)の実行に失敗する。
+
+`podman compose logs -n 100 gw-host` で `'/root/entry-point.sh': No such file or directory` が
+出ていれば上記の状況に該当する。
+
+この場合 `git config --global core.autocrlf false` の実行後に git clone をやり直す。
+
 ## whois 中継
 
 nginx の stream モジュールを用い、

@@ -1,5 +1,7 @@
 FROM debian:latest
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update -qq && \
     apt-get install -y inetutils-traceroute iproute2 iputils-ping ncat nftables procps tcpdump
 
