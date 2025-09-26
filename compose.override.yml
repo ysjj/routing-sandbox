@@ -1,9 +1,0 @@
-services:
-  gw-host:
-    build:
-      args:
-        EXTRA_PACKAGES: socat
-  int-host:
-    build: 
-      args:
-        EXTRA_PACKAGES: whois

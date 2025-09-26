@@ -1,0 +1,11 @@
+services:
+  gw-host:
+    image: localhost/routing-sandbox/gateway-transparent-whois-proxy
+    build:
+      args:
+        EXTRA_PACKAGES: socat
+  int-host:
+    image: localhost/routing-sandbox/internal-transparent-whois-proxy
+    build: 
+      args:
+        EXTRA_PACKAGES: whois
